@@ -17,9 +17,12 @@ const Message = () => {
 
 ReactDom.render(<Greeting />, document.getElementById("root")); */
 
+//CSS
+import "./index.css";
+
 function BookList() {
   return (
-    <section>
+    <section className="booklist">
       <Book />
       <Book />
       <Book />
@@ -30,7 +33,7 @@ function BookList() {
 
 const Book = () => {
   return (
-    <article>
+    <article className="book">
       <Image />
       <Title />
       <Author />

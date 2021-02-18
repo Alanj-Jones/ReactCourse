@@ -49,6 +49,10 @@ const Image = () => {
   );
 };
 const Title = () => <h1>Harry Potter y la piedra filosofal</h1>;
-const Author = () => <h2>J. K. Rowling</h2>;
+const Author = () => (
+  <h4 style={{ color: "#617d98", fontSize: "0.75rem", margin: "0.25rem" }}>
+    J. K. Rowling
+  </h4>
+);
 
 ReactDom.render(<BookList />, document.getElementById("root"));

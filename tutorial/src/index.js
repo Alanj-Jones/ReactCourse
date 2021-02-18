@@ -32,11 +32,14 @@ function BookList() {
 }
 
 const Book = () => {
+  const description = "Un simple Libro";
   return (
     <article className="book">
       <Image />
       <Title />
       <Author />
+      <h5>{description.toLocaleUpperCase()}</h5>
+      <p>{6 + 6}</p>
     </article>
   );
 };

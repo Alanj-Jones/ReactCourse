@@ -19,43 +19,42 @@ ReactDom.render(<Greeting />, document.getElementById("root")); */
 
 //CSS
 import "./index.css";
+//setup Variables
+const firstBook = {
+  img: "https://http2.mlstatic.com/D_NQ_NP_722711-MLA42906730908_072020-O.webp",
+  title: "Harry Potter y la piedra filosofal",
+  author: "J. K. Rowling",
+  description: "Un simple libro",
+};
 
 function BookList() {
   return (
     <section className="booklist">
-      <Book />
-      <Book />
-      <Book />
+      <Book
+        img={firstBook.img}
+        title={firstBook.title}
+        author={firstBook.author}
+        description={firstBook.description}
+      />
+      <Book title="Random title" number={10 + 12} />
+      <Book author="" />
       <Book />
     </section>
   );
 }
 
-const Book = () => {
-  const description = "Un simple Libro";
+const Book = (props) => {
+  console.log(props);
   return (
     <article className="book">
-      <Image />
-      <Title />
-      <Author />
-      <h5>{description.toLocaleUpperCase()}</h5>
-      <p>{6 + 6}</p>
+      <img src={props.img} alt="BOOK" />
+      <h1>{props.title}</h1>
+      <h5>{props.description}</h5>
+      <h4 style={{ color: "#617d98", fontSize: "0.75rem", margin: "0.25rem" }}>
+        {props.author}
+      </h4>
     </article>
   );
 };
-const Image = () => {
-  return (
-    <img
-      src="https://http2.mlstatic.com/D_NQ_NP_722711-MLA42906730908_072020-O.webp"
-      alt="BOOK"
-    />
-  );
-};
-const Title = () => <h1>Harry Potter y la piedra filosofal</h1>;
-const Author = () => (
-  <h4 style={{ color: "#617d98", fontSize: "0.75rem", margin: "0.25rem" }}>
-    J. K. Rowling
-  </h4>
-);
 
 ReactDom.render(<BookList />, document.getElementById("root"));

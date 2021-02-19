@@ -27,6 +27,14 @@ const firstBook = {
   description: "Un simple libro",
 };
 
+const secondBook = {
+  img: "https://imagessl9.casadellibro.com/a/l/t5/79/9788423358779.jpg",
+  title: "EL LUNES NOS QUERRAN",
+  author: "NAJAT EL HACHMI",
+  description:
+    "Una historia emocionante y reveladora sobre la importancia de que las mujeres sean protagonistas de sus propias vidas.",
+};
+
 function BookList() {
   return (
     <section className="booklist">
@@ -36,22 +44,28 @@ function BookList() {
         author={firstBook.author}
         description={firstBook.description}
       />
-      <Book title="Random title" number={10 + 12} />
+      <Book
+        img={secondBook.img}
+        title={secondBook.title}
+        author={secondBook.author}
+        description={secondBook.description}
+      />
       <Book author="" />
       <Book />
     </section>
   );
 }
-
+//Tambien podria ser asi:
+//const Book = ({ img, author, title, description }) => {
 const Book = (props) => {
-  console.log(props);
+  const { img, author, title, description } = props;
   return (
     <article className="book">
-      <img src={props.img} alt="BOOK" />
-      <h1>{props.title}</h1>
-      <h5>{props.description}</h5>
+      <img src={img} alt="BOOK" />
+      <h1>{title}</h1>
+      <h5>{description}</h5>
       <h4 style={{ color: "#617d98", fontSize: "0.75rem", margin: "0.25rem" }}>
-        {props.author}
+        {author}
       </h4>
     </article>
   );

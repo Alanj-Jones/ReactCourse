@@ -5,6 +5,7 @@ import ReactDom from "react-dom";
 import "./index.css";
 const books = [
   {
+    id: 1,
     img:
       "https://http2.mlstatic.com/D_NQ_NP_722711-MLA42906730908_072020-O.webp",
     title: "Harry Potter y la piedra filosofal",
@@ -12,6 +13,7 @@ const books = [
     description: "Un simple libro",
   },
   {
+    id: 2,
     img: "https://imagessl9.casadellibro.com/a/l/t5/79/9788423358779.jpg",
     title: "EL LUNES NOS QUERRAN",
     author: "NAJAT EL HACHMI",
@@ -24,14 +26,13 @@ function BookList() {
   return (
     <section className="booklist">
       {books.map((book) => {
-        return <Book book={book}></Book>;
+        return <Book key={book.id} {...book}></Book>;
       })}
     </section>
   );
 }
 
-const Book = (props) => {
-  const { img, author, title, description } = props.book;
+const Book = ({ img, author, title, description }) => {
   return (
     <article className="book">
       <img src={img} alt="BOOK" />

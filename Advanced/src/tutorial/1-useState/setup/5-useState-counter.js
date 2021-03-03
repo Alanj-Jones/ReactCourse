@@ -5,6 +5,7 @@ const UseStateCounter = () => {
 
   const complexIncrease = () => {
     setTimeout(() => {
+      // Old approach
       // setValue(value + 1);
       //Functional approach
       setValue((prevValue) => {

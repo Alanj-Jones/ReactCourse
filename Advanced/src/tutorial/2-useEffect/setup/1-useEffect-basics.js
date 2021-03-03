@@ -11,7 +11,7 @@ const UseEffectBasics = () => {
     } else {
       document.title = "No new messages";
     }
-  });
+  }, [value]);
   console.log("Render Component");
   return (
     <React.Fragment>

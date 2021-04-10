@@ -5,8 +5,7 @@ import items from "./data";
 
 function App() {
   const [isVisible, setIsVisible] = useState(true);
-  const [index, setIndex] = useState(0);
-  const { id, title, category, price, img, desc } = items[index];
+  const { id, title, category, price, img, desc } = items;
   return (
     <main>
       <article className="menu">
@@ -20,7 +19,20 @@ function App() {
           <button className="filter-btn">Almuerzo</button>
           <button className="filter-btn">Milkshakes</button>
         </div>
-        <Menu key={id} />
+        <div className="section-center">
+          {items.map((meal) => {
+            return (
+              <Menu
+                key={meal.id}
+                title={meal.title}
+                category={meal.category}
+                price={meal.price}
+                img={meal.img}
+                desc={meal.desc}
+              />
+            );
+          })}
+        </div>
       </article>
     </main>
   );

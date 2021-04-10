@@ -4,8 +4,16 @@ import Categories from "./Categories";
 import items from "./data";
 
 function App() {
-  const [isVisible, setIsVisible] = useState(true);
-  const { id, title, category, price, img, desc } = items;
+  const [menuItems, setMenuItems] = useState(items);
+  const filterItems = (category) => {
+    if (category === "all") {
+      setMenuItems(items);
+      return;
+    }
+    const visibleItems = items.filter((item) => item.category === category);
+    setMenuItems(visibleItems);
+  };
+
   return (
     <main>
       <article className="menu">
@@ -13,25 +21,9 @@ function App() {
           <h2>Nuestro menu</h2>
           <div className="underline"></div>
         </header>
-        <div className="btn-container">
-          <button className="filter-btn">Todo</button>
-          <button className="filter-btn">Desayuno</button>
-          <button className="filter-btn">Almuerzo</button>
-          <button className="filter-btn">Milkshakes</button>
-        </div>
+        <Categories filter={filterItems} />
         <div className="section-center">
-          {items.map((meal) => {
-            return (
-              <Menu
-                key={meal.id}
-                title={meal.title}
-                category={meal.category}
-                price={meal.price}
-                img={meal.img}
-                desc={meal.desc}
-              />
-            );
-          })}
+          <Menu items={menuItems} />
         </div>
       </article>
     </main>
